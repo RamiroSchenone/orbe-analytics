@@ -1,9 +1,7 @@
----
-// Archivo de configuración para manifest.json
----
+import type { APIRoute } from 'astro';
 
-export default function getManifest() {
-  return {
+export const GET: APIRoute = () => {
+  const manifest = {
     name: 'Orbe Analytics - Inteligencia de Negocios',
     short_name: 'Orbe Analytics',
     description: 'Transformamos datos en decisiones estratégicas. Consultoría en BI, Data Warehouse, Power BI y Metabase.',
@@ -24,4 +22,10 @@ export default function getManifest() {
       },
     ],
   };
-}
+
+  return new Response(JSON.stringify(manifest), {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
