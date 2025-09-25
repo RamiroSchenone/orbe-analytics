@@ -4,7 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 
 export default defineConfig({
-  site: 'https://orbeanalytics.com.ar',
+  site: 'https://ramiroschenone.github.io',
+  base: '/orbe-analytics',
   output: 'static',
   integrations: [
     tailwind(),
