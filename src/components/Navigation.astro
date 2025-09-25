@@ -1,0 +1,48 @@
+---
+// Componente de navegación reutilizable
+---
+
+<nav class="fixed top-0 inset-x-0 z-50 bg-orbe-dark/80 backdrop-blur nav-shadow">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="h-16 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-2 logo-link">
+        <span class="inline-grid place-items-center w-8 h-8 rounded-full bg-orbe-violet">
+          <svg class="w-4 h-4 text-white" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+            <circle cx="10" cy="10" r="3" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="text-lg">
+          <span class="font-orbe-brand font-semibold">ORBE</span>
+          <span class="font-analytics-brand font-semibold ml-1">Analytics</span>
+        </span>
+      </a>
+
+      <!-- desktop -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#servicios" class="nav-link hover:text-orbe-violet">Servicios</a>
+        <a href="/#beneficios" class="nav-link hover:text-orbe-violet">Beneficios</a>
+        <a href="/#faq" class="nav-link hover:text-orbe-violet">Preguntas frecuentes</a>
+        <a href="/#contacto" class="nav-link hover:text-orbe-violet">Contacto</a>
+        <a href="/#contacto" class="ml-2 inline-flex items-center rounded-lg bg-orbe-violet px-4 py-2 text-sm font-semibold hover:bg-purple-600 hover-lift">Agenda una reunión</a>
+      </div>
+
+      <!-- mobile toggle -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Abrir menú">
+        <svg id="menuIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
+    <div class="px-6 py-3 space-y-2">
+      <a class="block py-2 hover:text-orbe-violet" href="/#servicios">Servicios</a>
+      <a class="block py-2 hover:text-orbe-violet" href="/#beneficios">Beneficios</a>
+      <a class="block py-2 hover:text-orbe-violet" href="/#faq">FAQ</a>
+      <a class="block py-2 hover:text-orbe-violet" href="/#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>

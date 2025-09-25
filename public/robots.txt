@@ -1,0 +1,8 @@
+---
+// robots.txt generado automáticamente por Astro
+---
+
+User-agent: *
+Allow: /
+
+Sitemap: https://orbeanalytics.com.ar/sitemap-index.xml

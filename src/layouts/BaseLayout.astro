@@ -1,0 +1,739 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+  structuredData?: any;
+}
+
+// Importar estilos de fuentes
+import '../styles/fonts.css';
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = "https://orbeanalytics.com.ar/og-image.jpg",
+  ogType = "website",
+  noindex = false,
+  structuredData
+} = Astro.props;
+
+const siteUrl = "https://orbeanalytics.com.ar";
+const fullTitle = title.includes("Orbe Analytics") ? title : `${title} | Orbe Analytics`;
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO básico optimizado -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  
+  <!-- Open Graph optimizado -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Orbe Analytics" />
+  <meta property="og:locale" content="es_AR" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  
+  <!-- SEO adicional -->
+  <meta name="author" content="Orbe Analytics" />
+  <meta name="keywords" content="inteligencia de negocios, BI, data warehouse, power bi, metabase, integración de datos, dashboards, analítica, consultoría datos, Argentina, Rosario" />
+  <meta name="geo.region" content="AR-SF" />
+  <meta name="geo.placename" content="Rosario" />
+  <meta name="geo.position" content="-32.9442;-60.6505" />
+  <meta name="ICBM" content="-32.9442, -60.6505" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  
+  <!-- Fuentes optimizadas -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'orbe-violet': '#8B5CF6', // RGB 139 92 246
+            'orbe-dark': '#100645',   // RGB 16 6 69 - Color principal de marca
+            'orbe-gray': '#1A1A2E'    // Mantener para contraste
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            'orbe-brand': ['Chillaxr', 'Inter', 'system-ui', 'sans-serif'], // Para "ORBE"
+            'analytics-brand': ['Causten', 'Inter', 'system-ui', 'sans-serif'] // Para "Analytics"
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Estilos personalizados -->
+  <style>
+    /* Gradientes armoniosos y fondo completo */
+    :root {
+      --orbe-violet: #8B5CF6;
+      --orbe-dark: #100645;
+      --orbe-gray: #1A1A2E;
+      --orbe-violet-light: rgba(139, 92, 246, 0.1);
+      --orbe-violet-medium: rgba(139, 92, 246, 0.2);
+    }
+    
+    /* Fondo principal con degradado completo del viewport */
+    body {
+      background: linear-gradient(135deg, 
+        var(--orbe-dark) 0%, 
+        #1a0b3d 25%, 
+        var(--orbe-gray) 50%, 
+        #2a1a4a 75%, 
+        var(--orbe-dark) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    
+    /* Gradientes de secciones más suaves */
+    .gradient-bg { 
+      background: linear-gradient(135deg, 
+        rgba(16, 6, 69, 0.8) 0%, 
+        rgba(26, 26, 46, 0.6) 50%,
+        rgba(42, 26, 74, 0.8) 100%);
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero-gradient { 
+      background: radial-gradient(ellipse at 80% 20%, 
+        var(--orbe-violet-light) 0%, 
+        transparent 50%), 
+        linear-gradient(135deg,
+          var(--orbe-dark) 0%, 
+          #1a0b3d 30%,
+          var(--orbe-gray) 70%,
+          var(--orbe-dark) 100%);
+    }
+    
+    /* Efecto fade-out del Hero al hacer scroll */
+    .hero-content {
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .hero-content.fade-out {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    
+    .hero-overlay {
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+    }
+    
+    .hero-overlay.fade-in {
+      opacity: 1;
+    }
+    
+    /* Animación sutil para la leyenda del Hero */
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .hero-subtitle.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Párrafos del Hero que aparecen progresivamente */
+    .hero-paragraphs {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hero-paragraphs.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .hero-paragraph {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hero-paragraph.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Sección Welcome con comportamiento especial */
+    .welcome-section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .welcome-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .welcome-section.fade-out {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    
+    /* Estilos para el acordeón FAQ */
+    #faq details {
+      transition: all 0.3s ease;
+    }
+    
+    #faq details[open] {
+      background: linear-gradient(135deg, 
+        rgba(16, 6, 69, 0.8) 0%, 
+        rgba(26, 26, 46, 0.6) 100%);
+    }
+    
+    #faq details summary {
+      transition: all 0.3s ease;
+    }
+    
+    #faq details summary:hover {
+      color: var(--orbe-violet);
+    }
+    
+    #faq details summary span {
+      transition: transform 0.3s ease;
+    }
+    
+    #faq details[open] summary span {
+      transform: rotate(180deg);
+    }
+    
+    #faq details p {
+      animation: fadeInDown 0.3s ease;
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Navegación fija mejorada */
+    nav {
+      background: rgba(16, 6, 69, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    
+    /* Animaciones de entrada mejoradas */
+    .fade-in { 
+      opacity: 0; 
+      transform: translateY(24px); 
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+    
+    /* Animaciones escalonadas */
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    
+    /* Animaciones desde diferentes direcciones */
+    .fade-in-left { 
+      opacity: 0; 
+      transform: translateX(-24px); 
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in-left.visible { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+    
+    .fade-in-right { 
+      opacity: 0; 
+      transform: translateX(24px); 
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in-right.visible { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+    
+    /* Animación de escala */
+    .scale-in { 
+      opacity: 0; 
+      transform: scale(0.95); 
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .scale-in.visible { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+    
+    /* Transiciones suaves para enlaces */
+    a {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Hover effects mejorados */
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+    
+    /* Smooth scroll para toda la página */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Animación de carga de página */
+    @keyframes pageLoad {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mejoras para elementos interactivos */
+    button, input, textarea {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Animación para elementos de navegación */
+    .nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orbe-violet);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Secciones con mejor espaciado y efectos de scroll */
+    section {
+      position: relative;
+      z-index: 1;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Efecto fade-out para secciones */
+    section.fade-out {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    /* Efecto fade-in para secciones */
+    section.fade-in-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Componentes individuales con efectos de scroll */
+    .scroll-component {
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scroll-component.fade-out {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .scroll-component.fade-in-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Cards con mejor contraste */
+    .card-gradient {
+      background: linear-gradient(135deg, 
+        rgba(16, 6, 69, 0.6) 0%, 
+        rgba(26, 26, 46, 0.4) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    
+    /* Texto con mejor contraste */
+    .text-soft-white {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .text-muted {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Animaciones para la card explicativa */
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .animate-fade-in-down {
+      animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  <!-- Structured Data -->
+  {structuredData && (
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )}
+</head>
+
+<body class="bg-orbe-dark text-white font-sans selection:bg-orbe-violet/40">
+  <slot />
+  
+  <!-- Scripts optimizados -->
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll mejorado
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          const target = document.querySelector(id);
+          if(target) {
+            let offsetTop = target.offsetTop;
+            
+            // Ajuste especial para el logo que va al inicio
+            if(id === '#inicio') {
+              offsetTop = 0; // Ir al top de la página
+            } else {
+              offsetTop = offsetTop - 80; // Ajuste para navegación fija
+            }
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+            mobileMenu?.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Intersection Observer mejorado para animaciones
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Animación escalonada para elementos hermanos
+          const siblings = entry.target.parentElement?.children;
+          if (siblings) {
+            Array.from(siblings).forEach((sibling, index) => {
+              if (sibling.classList.contains('fade-in')) {
+                setTimeout(() => {
+                  sibling.classList.add('visible');
+                }, index * 100);
+              }
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observar todos los elementos con clases de animación
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
+      animatedElements.forEach(el => observer.observe(el));
+      
+      // Funcionalidad del acordeón FAQ
+      const faqDetails = document.querySelectorAll('#faq details');
+      
+      faqDetails.forEach(detail => {
+        const summary = detail.querySelector('summary');
+        
+        summary.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Cerrar otros detalles abiertos
+          faqDetails.forEach(otherDetail => {
+            if (otherDetail !== detail && otherDetail.hasAttribute('open')) {
+              otherDetail.removeAttribute('open');
+            }
+          });
+          
+          // Toggle del detalle actual
+          if (detail.hasAttribute('open')) {
+            detail.removeAttribute('open');
+          } else {
+            detail.setAttribute('open', '');
+          }
+        });
+      });
+      
+      // Controlar aparición progresiva de elementos del Hero
+      const heroSubtitle = document.querySelector('.hero-subtitle');
+      const heroParagraphs = document.querySelector('.hero-paragraphs');
+      const heroParagraphElements = document.querySelectorAll('.hero-paragraph');
+      
+      // Mostrar leyenda después de un breve delay
+      setTimeout(() => {
+        if (heroSubtitle) {
+          heroSubtitle.classList.add('visible');
+        }
+      }, 600); // 600ms después de cargar la página
+      
+      // Mostrar párrafos adicionales después de más tiempo
+      setTimeout(() => {
+        if (heroParagraphs) {
+          heroParagraphs.classList.add('visible');
+          
+          // Mostrar cada párrafo individual con delay
+          heroParagraphElements.forEach((paragraph, index) => {
+            setTimeout(() => {
+              paragraph.classList.add('visible');
+            }, (index + 1) * 500); // 500ms entre cada párrafo
+          });
+        }
+      }, 2000); // 2 segundos después de cargar la página
+    });
+
+    // Animación de carga de página
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+      // Sistema de fade-out/fade-in para todos los componentes
+      const heroContent = document.querySelector('.hero-content');
+      const heroOverlay = document.querySelector('.hero-overlay');
+      const heroSection = document.querySelector('.hero-gradient');
+      const welcomeSection = document.querySelector('.welcome-section');
+      const allSections = document.querySelectorAll('section');
+      const allComponents = document.querySelectorAll('.scroll-component');
+    
+    // Función para calcular el progreso de fade
+    function calculateFadeProgress(element, scrollTop, fadeStartRatio = 0.3, fadeEndRatio = 0.8) {
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top + scrollTop;
+      const elementHeight = rect.height;
+      const viewportHeight = window.innerHeight;
+      
+      const fadeStart = elementTop + (elementHeight * fadeStartRatio);
+      const fadeEnd = elementTop + (elementHeight * fadeEndRatio);
+      
+      if (scrollTop > fadeStart) {
+        return Math.min((scrollTop - fadeStart) / (fadeEnd - fadeStart), 1);
+      }
+      return 0;
+    }
+    
+    // Función para aplicar efectos de scroll
+      function applyScrollEffects(scrollTop) {
+        // Efecto del Hero (especial)
+        if (heroSection && heroContent) {
+          const heroHeight = heroSection.offsetHeight;
+          const fadeStart = heroHeight * 0.3;
+          const fadeEnd = heroHeight * 0.8;
+          
+          if (scrollTop > fadeStart) {
+            const fadeProgress = Math.min((scrollTop - fadeStart) / (fadeEnd - fadeStart), 1);
+            
+            heroContent.style.opacity = 1 - fadeProgress;
+            heroContent.style.transform = `translateY(${-fadeProgress * 50}px)`;
+            
+            if (heroOverlay) {
+              heroOverlay.style.opacity = fadeProgress * 0.8;
+            }
+          } else {
+            heroContent.style.opacity = 1;
+            heroContent.style.transform = 'translateY(0)';
+            if (heroOverlay) {
+              heroOverlay.style.opacity = 0;
+            }
+          }
+        }
+        
+        // Efecto de la sección Welcome
+        if (welcomeSection) {
+          const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+          const welcomeAppearPoint = heroHeight * 0.6; // Aparece cuando el Hero está 60% desvanecido
+          
+          if (scrollTop > welcomeAppearPoint) {
+            welcomeSection.classList.add('visible');
+            welcomeSection.classList.remove('fade-out');
+          } else {
+            welcomeSection.classList.remove('visible');
+            welcomeSection.classList.add('fade-out');
+          }
+        }
+      
+      // Efectos para todas las secciones
+      allSections.forEach(section => {
+        if (section === heroSection) return; // Skip hero section
+        if (section === welcomeSection) return; // Skip welcome section (manejada por separado)
+        
+        const fadeProgress = calculateFadeProgress(section, scrollTop);
+        
+        if (fadeProgress > 0) {
+          section.style.opacity = 1 - fadeProgress;
+          section.style.transform = `translateY(${fadeProgress * 30}px)`;
+        } else {
+          section.style.opacity = 1;
+          section.style.transform = 'translateY(0)';
+        }
+      });
+      
+      // Efectos para componentes individuales
+      allComponents.forEach(component => {
+        const fadeProgress = calculateFadeProgress(component, scrollTop);
+        
+        if (fadeProgress > 0) {
+          component.style.opacity = 1 - fadeProgress;
+          component.style.transform = `translateY(${fadeProgress * 20}px)`;
+        } else {
+          component.style.opacity = 1;
+          component.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Event listener optimizado para scroll
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          applyScrollEffects(scrollTop);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Efecto parallax sutil para el hero (mejorado)
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero-gradient');
+      if (hero) {
+        // Parallax más sutil que se detiene cuando el Hero se desvanece
+        const heroHeight = hero.offsetHeight;
+        if (scrolled < heroHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+      }
+    });
+
+    // Indicador de progreso de scroll
+    const createScrollProgress = () => {
+      const progressBar = document.createElement('div');
+      progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #8B5CF6, #A855F7);
+        z-index: 9999;
+        transition: width 0.1s ease;
+      `;
+      document.body.appendChild(progressBar);
+
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+      });
+    };
+
+    // Inicializar indicador de progreso
+    createScrollProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Chillaxr';
+  src: url('/fonts/Chillaxr-Semibold.woff2') format('woff2'),
+       url('/fonts/Chillaxr-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Causten';
+  src: url('/fonts/Causten-SemiBold.woff2') format('woff2'),
+       url('/fonts/Causten-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback para cuando las fuentes no estén disponibles */
+.font-orbe-brand {
+  font-family: 'Chillaxr', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.font-analytics-brand {
+  font-family: 'Causten', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}

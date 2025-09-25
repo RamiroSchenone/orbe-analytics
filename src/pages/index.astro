@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+// Structured Data para SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Orbe Analytics",
+  "url": "https://orbeanalytics.com.ar",
+  "logo": "https://orbeanalytics.com.ar/logo.png",
+  "sameAs": [
+    "https://instagram.com/nicolasthess",
+    "https://www.linkedin.com/in/nicolasthess"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Cándido Carballo 580",
+    "addressLocality": "Rosario",
+    "addressRegion": "Santa Fe",
+    "addressCountry": "AR"
+  },
+  "telephone": "+54 9 341 2741987",
+  "email": "nmo.carranza@gmail.com",
+  "description": "Consultoría en inteligencia de negocios, integración de datos, dashboards y analítica avanzada. Transformamos datos en decisiones estratégicas.",
+  "serviceType": [
+    "Inteligencia de Negocios",
+    "Integración de Datos",
+    "Data Warehouse",
+    "Dashboards",
+    "Power BI",
+    "Metabase",
+    "Analítica Avanzada"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Argentina"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Inteligencia de Negocios",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Integración de Datos",
+          "description": "Integración confiable de diversas fuentes de información para consolidar datos en una vista única del negocio."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Análisis & Visualización",
+          "description": "Diseño y desarrollo de tableros e informes interactivos que transforman datos en insights accionables."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Servicios Integrales",
+          "description": "Acompañamiento en estrategia de datos, gobernanza y gestión del cambio orientada a usuarios."
+        }
+      }
+    ]
+  }
+};
+
+// FAQ Structured Data
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué servicios ofrecen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ofrecemos integración de datos, diseño de Data Warehouses y dashboards, analítica avanzada y consultoría estratégica. Nuestro enfoque combina experiencia técnica con una visión humana del cambio, asegurando que las soluciones tecnológicas se adapten al ritmo y necesidades de tu equipo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo pueden ayudarme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convertimos datos dispersos en información accionable y acompañamos a tu equipo en el proceso de adopción. Diseñamos juntos los tableros y modelos para que comprendan su lógica y se sientan seguros al usarlos. Fomentamos un entorno de aprendizaje progresivo, donde preguntar y experimentar es parte del proceso, para que tu organización crezca con foco y rapidez sin perder confianza."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la integración?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el proceso de unificar múltiples fuentes y sistemas en una única versión de la verdad, con calidad y trazabilidad. Más allá de la tecnología, ayudamos a que las áreas involucradas entiendan y validen los datos que consumen, construyendo puentes entre procesos, personas y tecnología para mejorar la colaboración."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo empezar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agenda una reunión de diagnóstico sin costo para delinear un roadmap a medida. En ese primer encuentro, además de analizar requerimientos técnicos, escuchamos las inquietudes de tu equipo y les mostramos ejemplos prácticos para que visualicen el valor desde el inicio. Nuestro objetivo es que cada paso combine solidez técnica con acompañamiento humano, garantizando una adopción sostenida."
+      }
+    }
+  ]
+};
+
+// Combinar structured data
+const combinedStructuredData = [structuredData, faqStructuredData];
+---
+
+<BaseLayout 
+  title="Orbe Analytics — Inteligencia de Negocios"
+  description="Orbe Analytics: conectamos, integramos y transformamos datos en decisiones estratégicas. BI, Data Warehouse, Power BI, Metabase, capacitación."
+  canonical="/"
+  ogImage="https://orbeanalytics.com.ar/og-image.jpg"
+  structuredData={combinedStructuredData}
+>
+  <Navigation />
+  
+  <Hero />
+  
+  <!-- WELCOME -->
+  <section class="py-16 scroll-component welcome-section">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto scroll-component">
+        <h2 class="text-3xl md:text-5xl font-serif font-bold fade-in text-soft-white">Impulsa tu <span class="text-orbe-violet">negocio</span></h2>
+        <p class="mt-4 text-muted text-lg fade-in fade-in-delay-1">Bienvenido a Orbe Analytics, donde los datos se convierten en decisiones estratégicas para tu empresa.</p>
+        <div class="mt-8 flex justify-center gap-4 fade-in fade-in-delay-2">
+          <a href="#servicios" class="bg-orbe-violet hover:bg-purple-600 px-6 py-3 rounded-lg hover-lift">Nuestros servicios</a>
+          <a href="#contacto" class="border border-orbe-violet text-orbe-violet hover:bg-orbe-violet hover:text-white px-6 py-3 rounded-lg hover-lift">Contactanos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Services />
+  
+  <!-- BENEFITS -->
+  <section id="beneficios" class="py-20 scroll-component">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14 fade-in scroll-component">
+        <h2 class="text-3xl md:text-5xl font-serif font-bold text-soft-white">Decisiones <span class="text-orbe-violet">estratégicas</span> con datos confiables</h2>
+        <p class="mt-6 text-muted text-lg fade-in fade-in-delay-1">Impulsamos decisiones más seguras y oportunas mediante la calidad, integridad y trazabilidad de la información.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 1 -->
+        <article 
+          class="fade-in-left card-gradient rounded-2xl p-8 hover:ring-orbe-violet/40 transition-all duration-300 cursor-pointer hover-lift benefit-card" 
+          data-benefit="calidad-datos"
+        >
+          <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 grid place-items-center mb-5">
+            <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="text-2xl font-serif font-semibold text-soft-white">Calidad de Datos</h3>
+          <p class="mt-3 text-muted">Garantizamos la integridad y confiabilidad de tu información mediante procesos de validación y limpieza automatizados.</p>
+        </article>
+
+        <!-- 2 -->
+        <article 
+          class="fade-in card-gradient rounded-2xl p-8 hover:ring-orbe-violet/40 transition-all duration-300 cursor-pointer hover-lift benefit-card" 
+          data-benefit="trazabilidad"
+        >
+          <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 grid place-items-center mb-5">
+            <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="text-2xl font-serif font-semibold text-soft-white">Trazabilidad Completa</h3>
+          <p class="mt-3 text-muted">Rastreamos el origen y transformación de cada dato para asegurar transparencia y auditoría completa.</p>
+        </article>
+
+        <!-- 3 -->
+        <article 
+          class="fade-in-right card-gradient rounded-2xl p-8 hover:ring-orbe-violet/40 transition-all duration-300 cursor-pointer hover-lift benefit-card" 
+          data-benefit="decisiones-rapidas"
+        >
+          <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 grid place-items-center mb-5">
+            <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="text-2xl font-serif font-semibold text-soft-white">Decisiones Rápidas</h3>
+          <p class="mt-3 text-muted">Acceso inmediato a información actualizada para tomar decisiones oportunas y estratégicas.</p>
+        </article>
+      </div>
+
+      <!-- Card explicativa expandida -->
+      <div id="benefit-detail-card" class="mt-10 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+        <article class="card-gradient rounded-2xl p-8 border border-orbe-violet/30">
+          <div class="flex items-start gap-6">
+            <div id="benefit-icon" class="w-16 h-16 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
+              <!-- Icono se inserta dinámicamente -->
+            </div>
+            <div class="flex-1">
+              <h3 id="benefit-title" class="text-3xl font-serif font-bold text-soft-white mb-4">
+                <!-- Título se inserta dinámicamente -->
+              </h3>
+              <p id="benefit-overview" class="text-lg text-muted mb-6">
+                <!-- Descripción se inserta dinámicamente -->
+              </p>
+              
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="text-xl font-semibold text-orbe-violet mb-4">Beneficios Clave</h4>
+                  <ul id="benefit-key-benefits" class="space-y-3">
+                    <!-- Beneficios clave se insertan dinámicamente -->
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 class="text-xl font-semibold text-orbe-violet mb-4">Impacto en el Negocio</h4>
+                  <ul id="benefit-business-impact" class="space-y-3">
+                    <!-- Impacto en el negocio se inserta dinámicamente -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Datos de beneficios detallados
+    const benefitsData = {
+      'calidad-datos': {
+        title: 'Calidad de Datos',
+        overview: 'Garantizamos la integridad y confiabilidad de tu información mediante procesos de validación y limpieza automatizados que aseguran la precisión de cada dato.',
+        icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+        keyBenefits: [
+          'Validación automática de datos',
+          'Limpieza y normalización',
+          'Detección de inconsistencias',
+          'Monitoreo continuo de calidad'
+        ],
+        businessImpact: [
+          'Reducción de errores operativos',
+          'Mayor confianza en los datos',
+          'Cumplimiento normativo',
+          'Optimización de procesos'
+        ]
+      },
+      'trazabilidad': {
+        title: 'Trazabilidad Completa',
+        overview: 'Rastreamos el origen y transformación de cada dato para asegurar transparencia y auditoría completa en todo el ciclo de vida de la información.',
+        icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+        keyBenefits: [
+          'Auditoría completa de datos',
+          'Historial de transformaciones',
+          'Identificación de fuentes',
+          'Control de versiones'
+        ],
+        businessImpact: [
+          'Cumplimiento regulatorio',
+          'Transparencia operativa',
+          'Gestión de riesgos',
+          'Mejora continua'
+        ]
+      },
+      'decisiones-rapidas': {
+        title: 'Decisiones Rápidas',
+        overview: 'Acceso inmediato a información actualizada para tomar decisiones oportunas y estratégicas que impulsen el crecimiento del negocio.',
+        icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+        keyBenefits: [
+          'Información en tiempo real',
+          'Dashboards interactivos',
+          'Alertas automáticas',
+          'Acceso móvil'
+        ],
+        businessImpact: [
+          'Respuesta rápida a oportunidades',
+          'Reducción de tiempo de análisis',
+          'Ventaja competitiva',
+          'Mejor servicio al cliente'
+        ]
+      }
+    };
+
+    // Estado actual del beneficio activo
+    let activeBenefit = null;
+
+    // Función para mostrar la card detallada
+    function showBenefitDetail(benefitId) {
+      const benefitData = benefitsData[benefitId];
+      if (!benefitData) return;
+
+      const detailCard = document.getElementById('benefit-detail-card');
+      const benefitIcon = document.getElementById('benefit-icon');
+      const benefitTitle = document.getElementById('benefit-title');
+      const benefitOverview = document.getElementById('benefit-overview');
+      const benefitKeyBenefits = document.getElementById('benefit-key-benefits');
+      const benefitBusinessImpact = document.getElementById('benefit-business-impact');
+
+      // Actualizar contenido
+      benefitIcon.innerHTML = `<svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="${benefitData.icon}" stroke="currentColor" stroke-width="2"/></svg>`;
+      benefitTitle.textContent = benefitData.title;
+      benefitOverview.textContent = benefitData.overview;
+
+      // Limpiar contenido
+      benefitKeyBenefits.innerHTML = '';
+      benefitBusinessImpact.innerHTML = '';
+
+      // Llenar beneficios clave
+      benefitData.keyBenefits.forEach(benefit => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-3 text-muted';
+        li.innerHTML = `
+          <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>${benefit}</span>
+        `;
+        benefitKeyBenefits.appendChild(li);
+      });
+
+      // Llenar impacto en el negocio
+      benefitData.businessImpact.forEach(impact => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-3 text-muted';
+        li.innerHTML = `
+          <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>${impact}</span>
+        `;
+        benefitBusinessImpact.appendChild(li);
+      });
+
+      // Mostrar con animación fade in down (desde arriba)
+      detailCard.style.transform = 'translateY(-20px)';
+      detailCard.style.opacity = '0';
+      detailCard.style.pointerEvents = 'none';
+      detailCard.style.maxHeight = '0';
+      
+      // Forzar reflow
+      detailCard.offsetHeight;
+      
+      // Aplicar animación
+      detailCard.style.transform = 'translateY(0)';
+      detailCard.style.opacity = '1';
+      detailCard.style.pointerEvents = 'auto';
+      detailCard.style.maxHeight = '1000px';
+    }
+
+    // Función para ocultar la card detallada
+    function hideBenefitDetail() {
+      const detailCard = document.getElementById('benefit-detail-card');
+      
+      // Aplicar animación fade out up (hacia arriba)
+      detailCard.style.transform = 'translateY(-20px)';
+      detailCard.style.opacity = '0';
+      detailCard.style.pointerEvents = 'none';
+      detailCard.style.maxHeight = '0';
+    }
+
+    // Función para manejar el click en las cards
+    function handleBenefitClick(benefitId) {
+      const benefitCards = document.querySelectorAll('.benefit-card');
+      
+      // Remover clase activa de todas las cards
+      benefitCards.forEach(card => {
+        card.classList.remove('ring-2', 'ring-orbe-violet', 'shadow-lg', 'shadow-orbe-violet/25', 'bg-gradient-to-br', 'from-orbe-violet/10', 'to-purple-600/10');
+      });
+
+      if (activeBenefit === benefitId) {
+        // Si es la misma card, desactivar
+        activeBenefit = null;
+        hideBenefitDetail();
+      } else {
+        // Activar nueva card
+        activeBenefit = benefitId;
+        const clickedCard = document.querySelector(`[data-benefit="${benefitId}"]`);
+        clickedCard.classList.add('ring-2', 'ring-orbe-violet', 'shadow-lg', 'shadow-orbe-violet/25', 'bg-gradient-to-br', 'from-orbe-violet/10', 'to-purple-600/10');
+        showBenefitDetail(benefitId);
+      }
+    }
+
+    // Agregar event listeners cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      const benefitCards = document.querySelectorAll('.benefit-card');
+      
+      benefitCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const benefitId = card.getAttribute('data-benefit');
+          handleBenefitClick(benefitId);
+        });
+      });
+    });
+  </script>
+
+  <FAQ />
+  <Contact />
+  <Footer />
+</BaseLayout>
