@@ -69,34 +69,14 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <link rel="preconnect" href="https://cdn.tailwindcss.com" />
   
   <!-- Fuentes optimizadas -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'orbe-violet': '#8B5CF6', // RGB 139 92 246
-            'orbe-dark': '#100645',   // RGB 16 6 69 - Color principal de marca
-            'orbe-gray': '#1A1A2E'    // Mantener para contraste
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            'orbe-brand': ['Chillaxr', 'Inter', 'system-ui', 'sans-serif'], // Para "ORBE"
-            'analytics-brand': ['Causten', 'Inter', 'system-ui', 'sans-serif'] // Para "Analytics"
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind CSS se carga automáticamente via @astrojs/tailwind -->
   
   <!-- Estilos personalizados -->
   <style>

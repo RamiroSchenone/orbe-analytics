@@ -11,8 +11,8 @@ export default {
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        'orbe-brand': ['Chillaxr', 'Inter', 'system-ui', 'sans-serif'], // Para "ORBE"
-        'analytics-brand': ['Causten', 'Inter', 'system-ui', 'sans-serif'] // Para "Analytics"
+        'orbe-brand': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], // Para "ORBE"
+        'analytics-brand': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'] // Para "Analytics"
       }
     },
   },
