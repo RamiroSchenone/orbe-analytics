@@ -82,4 +82,4 @@ jspm_packages/
 .dynamodb/
 
 # GitHub Pages
-CNAME
+public/CNAME
