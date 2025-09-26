@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const site = 'https://orbeanalytics.com.ar';
+export const site = 'https://ramiroschenone.github.io/orbe-analytics';
 
 export const GET: APIRoute = () => {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
