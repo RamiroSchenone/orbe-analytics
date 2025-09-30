@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
+import About from '../components/About.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -144,6 +145,8 @@ const combinedStructuredData = [structuredData, faqStructuredData];
 
   <Services />
   
+  <About />
+  
   <!-- BENEFITS -->
   <section id="beneficios" class="py-20 scroll-component">
     <div class="max-w-7xl mx-auto px-6">
@@ -163,6 +166,71 @@ const combinedStructuredData = [structuredData, faqStructuredData];
           </div>
           <h3 class="text-2xl font-serif font-semibold text-soft-white">Calidad de Datos</h3>
           <p class="mt-3 text-muted">Garantizamos la integridad y confiabilidad de tu información mediante procesos de validación y limpieza automatizados.</p>
+          
+          <!-- Card expandida para mobile - aparece solo en mobile -->
+          <div id="benefit-detail-card-calidad-datos" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+            <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Calidad de Datos</h3>
+                  <p class="text-sm text-muted mb-4">Garantizamos la integridad y confiabilidad de tu información mediante procesos de validación y limpieza automatizados.</p>
+                  
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Beneficios Clave</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Validación automática de datos</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Limpieza y normalización</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Detección de inconsistencias</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Impacto en el Negocio</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Reducción de errores operativos</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Mayor confianza en los datos</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Cumplimiento normativo</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </article>
 
         <!-- 2 -->
@@ -175,6 +243,71 @@ const combinedStructuredData = [structuredData, faqStructuredData];
           </div>
           <h3 class="text-2xl font-serif font-semibold text-soft-white">Trazabilidad Completa</h3>
           <p class="mt-3 text-muted">Rastreamos el origen y transformación de cada dato para asegurar transparencia y auditoría completa.</p>
+          
+          <!-- Card expandida para mobile - aparece solo en mobile -->
+          <div id="benefit-detail-card-trazabilidad" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+            <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Trazabilidad Completa</h3>
+                  <p class="text-sm text-muted mb-4">Rastreamos el origen y transformación de cada dato para asegurar transparencia y auditoría completa.</p>
+                  
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Beneficios Clave</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Auditoría completa de datos</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Historial de transformaciones</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Identificación de fuentes</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Impacto en el Negocio</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Cumplimiento regulatorio</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Transparencia operativa</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Gestión de riesgos</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </article>
 
         <!-- 3 -->
@@ -187,11 +320,76 @@ const combinedStructuredData = [structuredData, faqStructuredData];
           </div>
           <h3 class="text-2xl font-serif font-semibold text-soft-white">Decisiones Rápidas</h3>
           <p class="mt-3 text-muted">Acceso inmediato a información actualizada para tomar decisiones oportunas y estratégicas.</p>
+          
+          <!-- Card expandida para mobile - aparece solo en mobile -->
+          <div id="benefit-detail-card-decisiones-rapidas" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+            <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Decisiones Rápidas</h3>
+                  <p class="text-sm text-muted mb-4">Acceso inmediato a información actualizada para tomar decisiones oportunas y estratégicas.</p>
+                  
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Beneficios Clave</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Información en tiempo real</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Dashboards interactivos</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Alertas automáticas</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 class="text-sm font-semibold text-orbe-violet mb-2">Impacto en el Negocio</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Respuesta rápida a oportunidades</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Reducción de tiempo de análisis</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-xs text-muted">
+                          <svg class="w-4 h-4 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Ventaja competitiva</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </article>
       </div>
 
-      <!-- Card explicativa expandida -->
-      <div id="benefit-detail-card" class="mt-10 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+      <!-- Card explicativa expandida para desktop -->
+      <div id="benefit-detail-card" class="hidden md:block mt-10 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
         <article class="card-gradient rounded-2xl p-8 border border-orbe-violet/30">
           <div class="flex items-start gap-6">
             <div id="benefit-icon" class="w-16 h-16 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
@@ -291,73 +489,127 @@ const combinedStructuredData = [structuredData, faqStructuredData];
       const benefitData = benefitsData[benefitId];
       if (!benefitData) return;
 
-      const detailCard = document.getElementById('benefit-detail-card');
-      const benefitIcon = document.getElementById('benefit-icon');
-      const benefitTitle = document.getElementById('benefit-title');
-      const benefitOverview = document.getElementById('benefit-overview');
-      const benefitKeyBenefits = document.getElementById('benefit-key-benefits');
-      const benefitBusinessImpact = document.getElementById('benefit-business-impact');
-
-      // Actualizar contenido
-      benefitIcon.innerHTML = `<svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="${benefitData.icon}" stroke="currentColor" stroke-width="2"/></svg>`;
-      benefitTitle.textContent = benefitData.title;
-      benefitOverview.textContent = benefitData.overview;
-
-      // Limpiar contenido
-      benefitKeyBenefits.innerHTML = '';
-      benefitBusinessImpact.innerHTML = '';
-
-      // Llenar beneficios clave
-      benefitData.keyBenefits.forEach(benefit => {
-        const li = document.createElement('li');
-        li.className = 'flex items-start gap-3 text-muted';
-        li.innerHTML = `
-          <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
-            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>${benefit}</span>
-        `;
-        benefitKeyBenefits.appendChild(li);
-      });
-
-      // Llenar impacto en el negocio
-      benefitData.businessImpact.forEach(impact => {
-        const li = document.createElement('li');
-        li.className = 'flex items-start gap-3 text-muted';
-        li.innerHTML = `
-          <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
-            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>${impact}</span>
-        `;
-        benefitBusinessImpact.appendChild(li);
-      });
-
-      // Mostrar con animación fade in down (desde arriba)
-      detailCard.style.transform = 'translateY(-20px)';
-      detailCard.style.opacity = '0';
-      detailCard.style.pointerEvents = 'none';
-      detailCard.style.maxHeight = '0';
+      // Detectar si estamos en mobile o desktop
+      const isMobile = window.innerWidth < 768; // md breakpoint
       
-      // Forzar reflow
-      detailCard.offsetHeight;
-      
-      // Aplicar animación
-      detailCard.style.transform = 'translateY(0)';
-      detailCard.style.opacity = '1';
-      detailCard.style.pointerEvents = 'auto';
-      detailCard.style.maxHeight = '1000px';
+      if (isMobile) {
+        // En mobile, mostrar la card específica del beneficio
+        const mobileDetailCard = document.getElementById(`benefit-detail-card-${benefitId}`);
+        if (mobileDetailCard) {
+          // Ocultar todas las otras cards móviles primero
+          hideAllMobileBenefitDetails();
+          
+          // Mostrar la card específica
+          mobileDetailCard.style.transform = 'translateY(-20px)';
+          mobileDetailCard.style.opacity = '0';
+          mobileDetailCard.style.pointerEvents = 'none';
+          mobileDetailCard.style.maxHeight = '0';
+          
+          // Forzar reflow
+          mobileDetailCard.offsetHeight;
+          
+          // Aplicar animación
+          mobileDetailCard.style.transform = 'translateY(0)';
+          mobileDetailCard.style.opacity = '1';
+          mobileDetailCard.style.pointerEvents = 'auto';
+          mobileDetailCard.style.maxHeight = '1000px';
+        }
+      } else {
+        // En desktop, usar la card original
+        const detailCard = document.getElementById('benefit-detail-card');
+        const benefitIcon = document.getElementById('benefit-icon');
+        const benefitTitle = document.getElementById('benefit-title');
+        const benefitOverview = document.getElementById('benefit-overview');
+        const benefitKeyBenefits = document.getElementById('benefit-key-benefits');
+        const benefitBusinessImpact = document.getElementById('benefit-business-impact');
+
+        if (!detailCard || !benefitIcon || !benefitTitle || !benefitOverview || !benefitKeyBenefits || !benefitBusinessImpact) {
+          return;
+        }
+
+        // Actualizar contenido
+        benefitIcon.innerHTML = `<svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="${benefitData.icon}" stroke="currentColor" stroke-width="2"/></svg>`;
+        benefitTitle.textContent = benefitData.title;
+        benefitOverview.textContent = benefitData.overview;
+
+        // Limpiar contenido
+        benefitKeyBenefits.innerHTML = '';
+        benefitBusinessImpact.innerHTML = '';
+
+        // Llenar beneficios clave
+        benefitData.keyBenefits.forEach(benefit => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-3 text-muted';
+          li.innerHTML = `
+            <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>${benefit}</span>
+          `;
+          benefitKeyBenefits.appendChild(li);
+        });
+
+        // Llenar impacto en el negocio
+        benefitData.businessImpact.forEach(impact => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-3 text-muted';
+          li.innerHTML = `
+            <svg class="w-5 h-5 text-orbe-violet mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+              <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>${impact}</span>
+          `;
+          benefitBusinessImpact.appendChild(li);
+        });
+
+        // Mostrar con animación fade in down (desde arriba)
+        detailCard.style.transform = 'translateY(-20px)';
+        detailCard.style.opacity = '0';
+        detailCard.style.pointerEvents = 'none';
+        detailCard.style.maxHeight = '0';
+        
+        // Forzar reflow
+        detailCard.offsetHeight;
+        
+        // Aplicar animación
+        detailCard.style.transform = 'translateY(0)';
+        detailCard.style.opacity = '1';
+        detailCard.style.pointerEvents = 'auto';
+        detailCard.style.maxHeight = '1000px';
+      }
+    }
+
+    // Función para ocultar todas las cards móviles de beneficios
+    function hideAllMobileBenefitDetails() {
+      const mobileCards = ['calidad-datos', 'trazabilidad', 'decisiones-rapidas'];
+      mobileCards.forEach(benefitId => {
+        const mobileCard = document.getElementById(`benefit-detail-card-${benefitId}`);
+        if (mobileCard) {
+          mobileCard.style.transform = 'translateY(-20px)';
+          mobileCard.style.opacity = '0';
+          mobileCard.style.pointerEvents = 'none';
+          mobileCard.style.maxHeight = '0';
+        }
+      });
     }
 
     // Función para ocultar la card detallada
     function hideBenefitDetail() {
-      const detailCard = document.getElementById('benefit-detail-card');
+      const isMobile = window.innerWidth < 768;
       
-      // Aplicar animación fade out up (hacia arriba)
-      detailCard.style.transform = 'translateY(-20px)';
-      detailCard.style.opacity = '0';
-      detailCard.style.pointerEvents = 'none';
-      detailCard.style.maxHeight = '0';
+      if (isMobile) {
+        hideAllMobileBenefitDetails();
+      } else {
+        const detailCard = document.getElementById('benefit-detail-card');
+        
+        if (!detailCard) return;
+        
+        // Aplicar animación fade out up (hacia arriba)
+        detailCard.style.transform = 'translateY(-20px)';
+        detailCard.style.opacity = '0';
+        detailCard.style.pointerEvents = 'none';
+        detailCard.style.maxHeight = '0';
+      }
     }
 
     // Función para manejar el click en las cards
@@ -377,7 +629,9 @@ const combinedStructuredData = [structuredData, faqStructuredData];
         // Activar nueva card
         activeBenefit = benefitId;
         const clickedCard = document.querySelector(`[data-benefit="${benefitId}"]`);
-        clickedCard.classList.add('ring-2', 'ring-orbe-violet', 'shadow-lg', 'shadow-orbe-violet/25', 'bg-gradient-to-br', 'from-orbe-violet/10', 'to-purple-600/10');
+        if (clickedCard) {
+          clickedCard.classList.add('ring-2', 'ring-orbe-violet', 'shadow-lg', 'shadow-orbe-violet/25', 'bg-gradient-to-br', 'from-orbe-violet/10', 'to-purple-600/10');
+        }
         showBenefitDetail(benefitId);
       }
     }
