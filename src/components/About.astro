@@ -2,6 +2,28 @@
 // Componente Sobre Nosotros
 ---
 
+<style>
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+  
+  .bg-gradient-radial-from-white\/20 {
+    --tw-gradient-from: rgba(255, 255, 255, 0.2);
+    --tw-gradient-to: rgba(255, 255, 255, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .bg-gradient-radial-to-orbe-violet\/40 {
+    --tw-gradient-to: rgba(139, 92, 246, 0.4);
+  }
+  
+  .bg-gradient-radial-from-white\/10 {
+    --tw-gradient-from: rgba(255, 255, 255, 0.1);
+    --tw-gradient-to: rgba(255, 255, 255, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+</style>
+
 <section id="sobre-nosotros" class="py-20 scroll-component">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14 fade-in scroll-component">
@@ -39,17 +61,20 @@
       <!-- Imagen o elemento visual -->
       <div class="fade-in-right scroll-component">
         <div class="relative">
-          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/20 to-purple-600/20 border border-orbe-violet/30 flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="w-24 h-24 rounded-full bg-orbe-violet/20 grid place-items-center mx-auto mb-6">
-                <svg class="w-12 h-12 text-orbe-violet" viewBox="0 0 24 24" fill="none">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                  <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
-                </svg>
+          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/20 to-purple-600/20 border border-orbe-violet/30 flex items-center justify-center p-8 overflow-hidden">
+            <div class="text-center relative">
+              <!-- Logo con efecto difuminado -->
+              <div class="relative">
+                <img 
+                  src="/src/assets/LOGO INSTAGRAM.jpg" 
+                  alt="Orbe Analytics Instagram Logo" 
+                  class="w-48 h-48 mx-auto object-contain rounded-full shadow-2xl"
+                />
+                <!-- Efecto de difuminado desde el centro hacia afuera -->
+                <div class="absolute inset-0 rounded-full bg-gradient-radial from-white/20 via-transparent to-orbe-violet/40 pointer-events-none"></div>
+                <!-- Overlay adicional para el efecto de difuminado -->
+                <div class="absolute inset-0 rounded-full bg-gradient-radial from-white/10 via-transparent to-transparent pointer-events-none"></div>
               </div>
-              <h4 class="text-xl font-serif font-semibold text-soft-white mb-2">Equipo Profesional</h4>
-              <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
           
@@ -61,23 +86,93 @@
     </div>
 
     <!-- Estadísticas o números destacados -->
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 fade-in fade-in-delay-2 scroll-component">
-      <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold text-orbe-violet mb-2">5+</div>
-        <div class="text-sm text-muted">Años de experiencia</div>
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-component" id="stats-container">
+      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Procesos Claros</h3>
+        <p class="text-sm text-muted">Metodologías estructuradas y transparentes</p>
       </div>
-      <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold text-orbe-violet mb-2">50+</div>
-        <div class="text-sm text-muted">Proyectos completados</div>
+      
+      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Soporte Dedicado</h3>
+        <p class="text-sm text-muted">Acompañamiento personalizado en cada proyecto</p>
       </div>
-      <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold text-orbe-violet mb-2">100%</div>
-        <div class="text-sm text-muted">Clientes satisfechos</div>
+      
+      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Capacitación Usuario</h3>
+        <p class="text-sm text-muted">Formación integral para tu equipo</p>
       </div>
-      <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold text-orbe-violet mb-2">24/7</div>
-        <div class="text-sm text-muted">Soporte disponible</div>
+      
+      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+            <path d="M3 3v18h18M7 12h4M7 8h4M7 16h4M15 8h2M15 12h2M15 16h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Decisiones Basadas en Evidencia</h3>
+        <p class="text-sm text-muted">Análisis riguroso y datos confiables</p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Variable para controlar si ya se animó
+  let hasAnimated = false;
+
+  // Función para manejar la animación de las estadísticas (solo una vez)
+  function animateStats() {
+    if (hasAnimated) return; // No animar si ya se hizo
+    
+    const statItems = document.querySelectorAll('.stat-item');
+    
+    statItems.forEach((item, index) => {
+      // Mostrar con animación escalonada
+      setTimeout(() => {
+        (item as HTMLElement).style.opacity = '1';
+        (item as HTMLElement).style.transform = 'translateY(0)';
+      }, index * 200);
+    });
+    
+    hasAnimated = true; // Marcar como animado
+  }
+
+  // Intersection Observer para mejor rendimiento
+  function initStatsObserver() {
+    const statsContainer = document.getElementById('stats-container');
+    if (!statsContainer) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          animateStats();
+        }
+      });
+    }, {
+      threshold: 0.3, // Se activa cuando el 30% del elemento es visible
+      rootMargin: '0px 0px -50px 0px' // Se activa un poco antes de que sea completamente visible
+    });
+
+    observer.observe(statsContainer);
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    initStatsObserver();
+  });
+</script>
