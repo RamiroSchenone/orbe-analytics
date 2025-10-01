@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 
 export default defineConfig({
-  site: 'https://ramiroschenone.github.io',
-  base: '/orbe-analytics',
+  site: 'https://astounding-sunflower-6c42ab.netlify.app',
   output: 'static',
   integrations: [
     tailwind(),
