@@ -25,34 +25,34 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
   }
 </style>
 
-<section id="sobre-nosotros" class="py-20 scroll-component">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-14 fade-in scroll-component">
-      <h2 class="text-3xl md:text-5xl font-serif font-bold text-soft-white">Sobre <span class="text-orbe-violet">Nosotros</span></h2>
-      <p class="mt-6 text-muted text-lg fade-in fade-in-delay-1">Conoce más sobre nuestra historia, valores y compromiso con la excelencia</p>
+<section id="sobre-nosotros" class="py-16 sm:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 sm:mb-14 animate-fade-in-up">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-soft-white">Sobre <span class="text-orbe-violet animate-pulse">Nosotros</span></h2>
+      <p class="mt-4 sm:mt-6 text-muted text-base sm:text-lg animate-fade-in-up animation-delay-200">Conoce más sobre nuestra historia, valores y compromiso con la excelencia</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <!-- Contenido de texto -->
-      <div class="fade-in-left scroll-component">
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-2xl font-serif font-semibold text-soft-white mb-4">Nuestra Filosofía</h3>
-            <p class="text-muted leading-relaxed">
+      <div class="animate-fade-in-up animation-delay-300">
+        <div class="space-y-6 lg:space-y-8">
+          <div class="hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestra Filosofía</h3>
+            <p class="text-muted leading-relaxed text-sm sm:text-base">
               Combinamos excelencia técnica con acompañamiento humano para que las personas no solo accedan a datos confiables, sino que también desarrollen la autonomía necesaria para crear sus propios proyectos y aplicar los conocimientos adquiridos, construyendo así un camino de información sostenible dentro de la organización.
             </p>
           </div>
           
-          <div>
-            <h3 class="text-2xl font-serif font-semibold text-soft-white mb-4">Nuestro Impacto</h3>
-            <p class="text-muted leading-relaxed">
+          <div class="hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Impacto</h3>
+            <p class="text-muted leading-relaxed text-sm sm:text-base">
               Al incorporar procesos inteligentes, ayudamos a tu organización a reducir drásticamente los tiempos operativos y a eliminar tareas repetitivas. Esto se traduce en un uso más eficiente del tiempo y los recursos, liberando a los equipos para que puedan enfocarse en actividades de mayor valor, innovación y análisis estratégico.
             </p>
           </div>
           
-          <div>
-            <h3 class="text-2xl font-serif font-semibold text-soft-white mb-4">Nuestro Compromiso</h3>
-            <p class="text-muted leading-relaxed">
+          <div class="hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Compromiso</h3>
+            <p class="text-muted leading-relaxed text-sm sm:text-base">
               Impulsamos una cultura organizacional orientada a los datos, donde la información fluye de manera integrada, confiable y trazable a lo largo de todo su recorrido. Nuestro objetivo es transformar no solo los sistemas, sino también las personas que los utilizan.
             </p>
           </div>
@@ -60,16 +60,16 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
       </div>
 
       <!-- Imagen o elemento visual -->
-      <div class="fade-in-right scroll-component">
-        <div class="relative">
-          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/20 to-purple-600/20 border border-orbe-violet/30 flex items-center justify-center p-8 overflow-hidden">
+      <div class="animate-fade-in-up animation-delay-400">
+        <div class="relative hover:scale-105 transition-transform duration-500">
+          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/20 to-purple-600/20 border border-orbe-violet/30 flex items-center justify-center p-6 sm:p-8 overflow-hidden">
             <div class="text-center relative">
               <!-- Logo con efecto difuminado -->
               <div class="relative">
                 <img 
                   src={instagramLogo.src} 
                   alt="Orbe Analytics Instagram Logo" 
-                  class="w-48 h-48 mx-auto object-contain rounded-full shadow-2xl"
+                  class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto object-contain rounded-full shadow-2xl animate-pulse"
                 />
                 <!-- Efecto de difuminado desde el centro hacia afuera -->
                 <div class="absolute inset-0 rounded-full bg-gradient-radial from-white/20 via-transparent to-orbe-violet/40 pointer-events-none"></div>
@@ -80,100 +80,53 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
           </div>
           
           <!-- Elementos decorativos -->
-          <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-orbe-violet/30 animate-pulse"></div>
-          <div class="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-purple-600/30 animate-pulse delay-1000"></div>
+          <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-orbe-violet/30 animate-bounce"></div>
+          <div class="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-purple-600/30 animate-bounce animation-delay-1000"></div>
         </div>
       </div>
     </div>
 
     <!-- Estadísticas o números destacados -->
-    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-component" id="stats-container">
-      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
-          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+    <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div class="text-center animate-fade-in-up animation-delay-500 hover:scale-105 transition-transform duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Procesos Claros</h3>
-        <p class="text-sm text-muted">Metodologías estructuradas y transparentes</p>
+        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white">Procesos Claros</h3>
       </div>
       
-      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
-          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+      <div class="text-center animate-fade-in-up animation-delay-600 hover:scale-105 transition-transform duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
           </svg>
         </div>
-        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Soporte Dedicado</h3>
-        <p class="text-sm text-muted">Acompañamiento personalizado en cada proyecto</p>
+        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Soporte Dedicado</h3>
+        <p class="text-xs sm:text-sm text-muted">Acompañamiento personalizado en cada proyecto</p>
       </div>
       
-      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
-          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+      <div class="text-center animate-fade-in-up animation-delay-700 hover:scale-105 transition-transform duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Capacitación Usuario</h3>
-        <p class="text-sm text-muted">Formación integral para tu equipo</p>
+        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Capacitación Usuario</h3>
+        <p class="text-xs sm:text-sm text-muted">Formación integral para tu equipo</p>
       </div>
       
-      <div class="text-center stat-item opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
-          <svg class="w-8 h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
+      <div class="text-center animate-fade-in-up animation-delay-800 hover:scale-105 transition-transform duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M3 3v18h18M7 12h4M7 8h4M7 16h4M15 8h2M15 12h2M15 16h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-lg font-serif font-semibold text-soft-white mb-2">Decisiones Basadas en Evidencia</h3>
-        <p class="text-sm text-muted">Análisis riguroso y datos confiables</p>
+        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Decisiones Basadas en Evidencia</h3>
+        <p class="text-xs sm:text-sm text-muted">Análisis riguroso y datos confiables</p>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // Variable para controlar si ya se animó
-  let hasAnimated = false;
-
-  // Función para manejar la animación de las estadísticas (solo una vez)
-  function animateStats() {
-    if (hasAnimated) return; // No animar si ya se hizo
-    
-    const statItems = document.querySelectorAll('.stat-item');
-    
-    statItems.forEach((item, index) => {
-      // Mostrar con animación escalonada
-      setTimeout(() => {
-        (item as HTMLElement).style.opacity = '1';
-        (item as HTMLElement).style.transform = 'translateY(0)';
-      }, index * 200);
-    });
-    
-    hasAnimated = true; // Marcar como animado
-  }
-
-  // Intersection Observer para mejor rendimiento
-  function initStatsObserver() {
-    const statsContainer = document.getElementById('stats-container');
-    if (!statsContainer) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          animateStats();
-        }
-      });
-    }, {
-      threshold: 0.3, // Se activa cuando el 30% del elemento es visible
-      rootMargin: '0px 0px -50px 0px' // Se activa un poco antes de que sea completamente visible
-    });
-
-    observer.observe(statsContainer);
-  }
-
-  // Inicializar cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
-    initStatsObserver();
-  });
-</script>
