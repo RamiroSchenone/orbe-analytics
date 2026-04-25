@@ -4,15 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'orbe-violet': '#8B5CF6', // RGB 139 92 246
-        'orbe-dark': '#100645',   // RGB 16 6 69 - Color principal de marca
-        'orbe-gray': '#1A1A2E'    // Mantener para contraste
+        'orbe-violet': '#8B5CF6',
+        'orbe-dark': '#0e0e0e',
+        'orbe-deep': '#794eba',
+        'orbe-gray': '#0f0f0f',
+        'orbe-chrome': '#C8C8D8',
+        'orbe-glow': 'rgba(139,92,246,0.18)'
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        'orbe-brand': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], // Para "ORBE"
-        'analytics-brand': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'] // Para "Analytics"
+        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        'orbe-brand': ['Montserrat', 'system-ui', 'sans-serif'],
+        'analytics-brand': ['Montserrat', 'system-ui', 'sans-serif']
       }
     },
   },

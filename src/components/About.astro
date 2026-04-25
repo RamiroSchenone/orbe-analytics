@@ -1,34 +1,11 @@
 ---
 // Componente Sobre Nosotros
-import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
 ---
-
-<style>
-  .bg-gradient-radial {
-    background: radial-gradient(circle, var(--tw-gradient-stops));
-  }
-  
-  .bg-gradient-radial-from-white\/20 {
-    --tw-gradient-from: rgba(255, 255, 255, 0.2);
-    --tw-gradient-to: rgba(255, 255, 255, 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  }
-  
-  .bg-gradient-radial-to-orbe-violet\/40 {
-    --tw-gradient-to: rgba(139, 92, 246, 0.4);
-  }
-  
-  .bg-gradient-radial-from-white\/10 {
-    --tw-gradient-from: rgba(255, 255, 255, 0.1);
-    --tw-gradient-to: rgba(255, 255, 255, 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  }
-</style>
 
 <section id="sobre-nosotros" class="py-16 sm:py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-12 sm:mb-14 animate-fade-in-up">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-soft-white">Sobre <span class="text-orbe-violet animate-pulse">Nosotros</span></h2>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-soft-white">Sobre <span class="text-orbe-violet">Nosotros</span></h2>
       <p class="mt-4 sm:mt-6 text-muted text-base sm:text-lg animate-fade-in-up animation-delay-200">Conoce más sobre nuestra historia, valores y compromiso con la excelencia</p>
     </div>
 
@@ -37,21 +14,21 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
       <div class="animate-fade-in-up animation-delay-300">
         <div class="space-y-6 lg:space-y-8">
           <div class="hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestra Filosofía</h3>
+            <h3 class="text-xl sm:text-2xl font-sans font-semibold text-soft-white mb-3 sm:mb-4">Nuestra Filosofía</h3>
             <p class="text-muted leading-relaxed text-sm sm:text-base">
               Combinamos excelencia técnica con acompañamiento humano para que las personas no solo accedan a datos confiables, sino que también desarrollen la autonomía necesaria para crear sus propios proyectos y aplicar los conocimientos adquiridos, construyendo así un camino de información sostenible dentro de la organización.
             </p>
           </div>
-          
+
           <div class="hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Impacto</h3>
+            <h3 class="text-xl sm:text-2xl font-sans font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Impacto</h3>
             <p class="text-muted leading-relaxed text-sm sm:text-base">
               Al incorporar procesos inteligentes, ayudamos a tu organización a reducir drásticamente los tiempos operativos y a eliminar tareas repetitivas. Esto se traduce en un uso más eficiente del tiempo y los recursos, liberando a los equipos para que puedan enfocarse en actividades de mayor valor, innovación y análisis estratégico.
             </p>
           </div>
-          
+
           <div class="hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl sm:text-2xl font-serif font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Compromiso</h3>
+            <h3 class="text-xl sm:text-2xl font-sans font-semibold text-soft-white mb-3 sm:mb-4">Nuestro Compromiso</h3>
             <p class="text-muted leading-relaxed text-sm sm:text-base">
               Impulsamos una cultura organizacional orientada a los datos, donde la información fluye de manera integrada, confiable y trazable a lo largo de todo su recorrido. Nuestro objetivo es transformar no solo los sistemas, sino también las personas que los utilizan.
             </p>
@@ -59,27 +36,72 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
         </div>
       </div>
 
-      <!-- Imagen o elemento visual -->
+      <!-- Elemento visual — data viz SVG -->
       <div class="animate-fade-in-up animation-delay-400">
-        <div class="relative hover:scale-105 transition-transform duration-500">
-          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/20 to-purple-600/20 border border-orbe-violet/30 flex items-center justify-center p-6 sm:p-8 overflow-hidden">
-            <div class="text-center relative">
-              <!-- Logo con efecto difuminado -->
-              <div class="relative">
-                <img 
-                  src={instagramLogo.src} 
-                  alt="Orbe Analytics Instagram Logo" 
-                  class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto object-contain rounded-full shadow-2xl animate-pulse"
-                />
-                <!-- Efecto de difuminado desde el centro hacia afuera -->
-                <div class="absolute inset-0 rounded-full bg-gradient-radial from-white/20 via-transparent to-orbe-violet/40 pointer-events-none"></div>
-                <!-- Overlay adicional para el efecto de difuminado -->
-                <div class="absolute inset-0 rounded-full bg-gradient-radial from-white/10 via-transparent to-transparent pointer-events-none"></div>
-              </div>
-            </div>
+        <div class="relative hover:scale-[1.02] transition-transform duration-500">
+          <div class="aspect-square rounded-2xl bg-gradient-to-br from-orbe-violet/10 to-purple-600/10 border border-orbe-violet/20 flex items-center justify-center p-8 overflow-hidden">
+            <!-- Decorative glow -->
+            <div class="absolute inset-0 rounded-2xl" style="background: radial-gradient(ellipse at 60% 40%, rgba(121,78,186,0.15) 0%, transparent 65%);"></div>
+
+            <!-- Data visualization SVG -->
+            <svg viewBox="0 0 220 220" class="w-full max-w-[260px] relative z-10" aria-hidden="true">
+              <!-- Grid lines -->
+              <line x1="30" y1="30" x2="30" y2="170" stroke="rgba(139,92,246,0.15)" stroke-width="1"/>
+              <line x1="30" y1="170" x2="200" y2="170" stroke="rgba(139,92,246,0.15)" stroke-width="1"/>
+              <line x1="30" y1="130" x2="200" y2="130" stroke="rgba(139,92,246,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="30" y1="100" x2="200" y2="100" stroke="rgba(139,92,246,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="30" y1="70" x2="200" y2="70" stroke="rgba(139,92,246,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <!-- Bar chart -->
+              <rect x="45" y="110" width="22" height="60" rx="3" fill="rgba(139,92,246,0.55)"/>
+              <rect x="82" y="80" width="22" height="90" rx="3" fill="rgba(139,92,246,0.75)"/>
+              <rect x="119" y="55" width="22" height="115" rx="3" fill="rgba(139,92,246,0.9)"/>
+              <rect x="156" y="90" width="22" height="80" rx="3" fill="rgba(139,92,246,0.65)"/>
+
+              <!-- Highlight tops -->
+              <rect x="45" y="108" width="22" height="4" rx="2" fill="#a78bfa"/>
+              <rect x="82" y="78" width="22" height="4" rx="2" fill="#a78bfa"/>
+              <rect x="119" y="53" width="22" height="4" rx="2" fill="#c4b5fd"/>
+              <rect x="156" y="88" width="22" height="4" rx="2" fill="#a78bfa"/>
+
+              <!-- Line graph overlay -->
+              <polyline
+                points="56,100 93,72 130,48 167,80"
+                fill="none"
+                stroke="#c4b5fd"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                opacity="0.85"
+              />
+
+              <!-- Data points on line -->
+              <circle cx="56" cy="100" r="3.5" fill="#8B5CF6" stroke="#c4b5fd" stroke-width="1.5"/>
+              <circle cx="93" cy="72" r="3.5" fill="#8B5CF6" stroke="#c4b5fd" stroke-width="1.5"/>
+              <circle cx="130" cy="48" r="4.5" fill="#a78bfa" stroke="#e9d5ff" stroke-width="1.5"/>
+              <circle cx="167" cy="80" r="3.5" fill="#8B5CF6" stroke="#c4b5fd" stroke-width="1.5"/>
+
+              <!-- Peak value label -->
+              <rect x="118" y="30" width="26" height="16" rx="4" fill="rgba(139,92,246,0.3)" stroke="rgba(196,181,253,0.4)" stroke-width="1"/>
+              <text x="131" y="42" text-anchor="middle" font-size="8" fill="#e9d5ff" font-family="monospace">+84%</text>
+
+              <!-- Node network (bottom-right) -->
+              <circle cx="188" cy="46" r="5" fill="rgba(139,92,246,0.4)" stroke="rgba(196,181,253,0.5)" stroke-width="1"/>
+              <circle cx="205" cy="62" r="3.5" fill="rgba(139,92,246,0.3)" stroke="rgba(196,181,253,0.4)" stroke-width="1"/>
+              <circle cx="193" cy="68" r="3" fill="rgba(139,92,246,0.25)" stroke="rgba(196,181,253,0.3)" stroke-width="1"/>
+              <line x1="188" y1="46" x2="205" y2="62" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+              <line x1="188" y1="46" x2="193" y2="68" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+              <line x1="205" y1="62" x2="193" y2="68" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+
+              <!-- Axis labels -->
+              <text x="56" y="186" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.25)" font-family="monospace">Q1</text>
+              <text x="93" y="186" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.25)" font-family="monospace">Q2</text>
+              <text x="130" y="186" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.35)" font-family="monospace">Q3</text>
+              <text x="167" y="186" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.25)" font-family="monospace">Q4</text>
+            </svg>
           </div>
-          
-          <!-- Elementos decorativos -->
+
+          <!-- Decorative dots -->
           <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-orbe-violet/30 animate-bounce"></div>
           <div class="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-purple-600/30 animate-bounce animation-delay-1000"></div>
         </div>
@@ -94,9 +116,9 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white">Procesos Claros</h3>
+        <h3 class="text-base sm:text-lg font-sans font-semibold text-soft-white">Procesos Claros</h3>
       </div>
-      
+
       <div class="text-center animate-fade-in-up animation-delay-600 hover:scale-105 transition-transform duration-300">
         <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
           <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
@@ -104,27 +126,27 @@ import instagramLogo from '../assets/LOGO INSTAGRAM.jpg';
             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
           </svg>
         </div>
-        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Soporte Dedicado</h3>
+        <h3 class="text-base sm:text-lg font-sans font-semibold text-soft-white mb-2">Soporte Dedicado</h3>
         <p class="text-xs sm:text-sm text-muted">Acompañamiento personalizado en cada proyecto</p>
       </div>
-      
+
       <div class="text-center animate-fade-in-up animation-delay-700 hover:scale-105 transition-transform duration-300">
         <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
           <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Capacitación Usuario</h3>
+        <h3 class="text-base sm:text-lg font-sans font-semibold text-soft-white mb-2">Capacitación Usuario</h3>
         <p class="text-xs sm:text-sm text-muted">Formación integral para tu equipo</p>
       </div>
-      
+
       <div class="text-center animate-fade-in-up animation-delay-800 hover:scale-105 transition-transform duration-300">
         <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-orbe-violet/20 flex items-center justify-center">
           <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orbe-violet" viewBox="0 0 24 24" fill="none">
             <path d="M3 3v18h18M7 12h4M7 8h4M7 16h4M15 8h2M15 12h2M15 16h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="text-base sm:text-lg font-serif font-semibold text-soft-white mb-2">Decisiones Basadas en Evidencia</h3>
+        <h3 class="text-base sm:text-lg font-sans font-semibold text-soft-white mb-2">Decisiones Basadas en Evidencia</h3>
         <p class="text-xs sm:text-sm text-muted">Análisis riguroso y datos confiables</p>
       </div>
     </div>

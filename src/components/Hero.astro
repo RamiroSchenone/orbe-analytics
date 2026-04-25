@@ -1,27 +1,69 @@
 ---
-// Componente de Hero Section
+import OrbeCube from './OrbeCube.astro';
 ---
 
-<header id="inicio" class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
-  <!-- Overlay que se desvanece al hacer scroll -->
-  <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-orbe-dark/50 pointer-events-none"></div>
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-16 relative z-10 w-full">
-    <div class="max-w-4xl hero-content">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight animate-fade-in-up text-soft-white">
-        Primero <span class="text-orbe-violet animate-pulse">los datos</span>
-      </h1>
-      
-      <!-- Leyenda principal con animación sutil -->
-      <p class="hero-subtitle mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted leading-relaxed animate-fade-in-up animation-delay-200">
-        Impulsamos una cultura organizacional orientada a los datos, donde la información fluye de manera integrada, confiable y trazable a lo largo de todo su recorrido.
-      </p>
-      
-      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up animation-delay-400">
-        <a href="#servicios" class="inline-flex justify-center bg-orbe-violet hover:bg-purple-600 text-white px-6 sm:px-7 py-3 sm:py-3 rounded-lg font-medium hover-lift text-sm sm:text-base transition-all duration-300 hover:scale-105">Descubre</a>
-        <a href="#contacto" class="inline-flex justify-center border-2 border-white hover:bg-white hover:text-orbe-dark px-6 sm:px-7 py-3 sm:py-3 rounded-lg font-medium hover-lift text-sm sm:text-base transition-all duration-300 hover:scale-105">Contáctanos</a>
+<header id="inicio" class="hero-gradient relative min-h-screen flex items-center overflow-hidden">
+
+  <!-- Ambient glow behind cube (right side) -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none"
+       style="background: radial-gradient(ellipse at right, rgba(139,92,246,0.10) 0%, transparent 65%);"
+       aria-hidden="true">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 w-full">
+    <div class="flex items-center gap-0 lg:gap-8 min-h-screen py-24">
+
+      <!-- LEFT: Text -->
+      <div class="hero-content flex-1 max-w-xl z-10">
+
+        <!-- Eyebrow badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orbe-violet/30 bg-orbe-violet/10 text-orbe-violet text-xs font-medium tracking-wide mb-8 animate-fade-in-up">
+          <span class="w-1.5 h-1.5 rounded-full bg-orbe-violet animate-pulse inline-block"></span>
+          Rosario, Argentina &middot; BI &amp; Analytics
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-sans font-bold leading-[1.02] tracking-tight text-white animate-fade-in-up animation-delay-100">
+          Primero<br />
+          <span class="text-orbe-violet">los datos</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle mt-6 text-lg text-white/55 leading-relaxed max-w-md">
+          Transformamos datos en decisiones estratégicas. Impulsamos una cultura organizacional orientada a la información.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas mt-10 flex flex-col sm:flex-row gap-3">
+          <a href="#servicios"
+             class="btn-shimmer inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orbe-violet/20">
+            Descubre nuestros servicios
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#contacto"
+             class="inline-flex items-center justify-center border border-white/20 hover:border-orbe-violet/60 text-white/65 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 backdrop-blur-sm">
+            Contáctanos
+          </a>
+        </div>
+
       </div>
-      
+
+      <!-- RIGHT: 3D Cube -->
+      <div class="hidden lg:flex flex-1 items-center justify-center relative z-10">
+        <div class="w-[420px] h-[420px] xl:w-[500px] xl:h-[500px]">
+          <OrbeCube />
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+       style="background: linear-gradient(to top, #0e0e0e, transparent);"
+       aria-hidden="true">
+  </div>
+
 </header>

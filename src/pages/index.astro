@@ -129,20 +129,6 @@ const combinedStructuredData = [structuredData, faqStructuredData];
   
   <Hero />
   
-  <!-- WELCOME -->
-  <section class="py-16 scroll-component welcome-section">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-3xl mx-auto scroll-component">
-        <h2 class="text-3xl md:text-5xl font-serif font-bold fade-in text-soft-white">Impulsa tu <span class="text-orbe-violet">negocio</span></h2>
-        <p class="mt-4 text-muted text-lg fade-in fade-in-delay-1">Bienvenido a Orbe Analytics, donde los datos se convierten en decisiones estratégicas para tu empresa.</p>
-        <div class="mt-8 flex justify-center gap-4 fade-in fade-in-delay-2">
-          <a href="#servicios" class="bg-orbe-violet hover:bg-purple-600 px-6 py-3 rounded-lg hover-lift">Nuestros servicios</a>
-          <a href="#contacto" class="border border-orbe-violet text-orbe-violet hover:bg-orbe-violet hover:text-white px-6 py-3 rounded-lg hover-lift">Contactanos</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <Services />
   
   <About />
@@ -151,30 +137,30 @@ const combinedStructuredData = [structuredData, faqStructuredData];
   <section id="beneficios" class="py-20 scroll-component">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-14 fade-in scroll-component">
-        <h2 class="text-3xl md:text-5xl font-serif font-bold text-soft-white">Decisiones <span class="text-orbe-violet">estratégicas</span> con datos confiables</h2>
+        <h2 class="text-3xl md:text-5xl font-sans font-bold text-soft-white">Decisiones <span class="text-orbe-violet">estratégicas</span> con datos confiables</h2>
         <p class="mt-6 text-muted text-lg fade-in fade-in-delay-1">Impulsamos decisiones más seguras y oportunas mediante la calidad, integridad y trazabilidad de la información.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- 1 -->
         <article 
-          class="fade-in-left card-gradient rounded-2xl p-8 hover:ring-2 hover:ring-orbe-violet/60 hover:shadow-xl hover:shadow-orbe-violet/20 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
+          class="fade-in-left rounded-2xl p-8 bg-white/[0.03] border border-white/[0.08] hover:border-orbe-violet/40 hover:bg-orbe-violet/[0.05] hover:shadow-xl hover:shadow-orbe-violet/10 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
           data-benefit="calidad-datos"
         >
           <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 group-hover:bg-orbe-violet/30 group-hover:scale-110 transition-all duration-300 grid place-items-center mb-5">
             <svg class="w-6 h-6 text-orbe-violet group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <h3 class="text-2xl font-serif font-semibold text-soft-white">Calidad de Datos</h3>
+          <h3 class="text-2xl font-sans font-semibold text-soft-white">Calidad de Datos</h3>
           
           <!-- Card expandida para mobile - aparece solo en mobile -->
-          <div id="benefit-detail-card-calidad-datos" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+          <div id="benefit-detail-card-calidad-datos" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-500 ease-out max-h-0 overflow-hidden">
             <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
                   <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
                 </div>
                 <div class="flex-1">
-                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Calidad de Datos</h3>
+                  <h3 class="text-xl font-sans font-bold text-soft-white mb-3">Calidad de Datos</h3>
                   <p class="text-sm text-muted mb-4">Garantizamos la integridad y confiabilidad de tu información mediante procesos de validación y limpieza automatizados.</p>
                   
                   <div class="space-y-4">
@@ -234,23 +220,23 @@ const combinedStructuredData = [structuredData, faqStructuredData];
 
         <!-- 2 -->
         <article 
-          class="fade-in card-gradient rounded-2xl p-8 hover:ring-2 hover:ring-orbe-violet/60 hover:shadow-xl hover:shadow-orbe-violet/20 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
+          class="fade-in rounded-2xl p-8 bg-white/[0.03] border border-white/[0.08] hover:border-orbe-violet/40 hover:bg-orbe-violet/[0.05] hover:shadow-xl hover:shadow-orbe-violet/10 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
           data-benefit="trazabilidad"
         >
           <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 group-hover:bg-orbe-violet/30 group-hover:scale-110 transition-all duration-300 grid place-items-center mb-5">
             <svg class="w-6 h-6 text-orbe-violet group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <h3 class="text-2xl font-serif font-semibold text-soft-white">Trazabilidad Completa</h3>
+          <h3 class="text-2xl font-sans font-semibold text-soft-white">Trazabilidad Completa</h3>
           
           <!-- Card expandida para mobile - aparece solo en mobile -->
-          <div id="benefit-detail-card-trazabilidad" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+          <div id="benefit-detail-card-trazabilidad" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-500 ease-out max-h-0 overflow-hidden">
             <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
                   <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/></svg>
                 </div>
                 <div class="flex-1">
-                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Trazabilidad Completa</h3>
+                  <h3 class="text-xl font-sans font-bold text-soft-white mb-3">Trazabilidad Completa</h3>
                   <p class="text-sm text-muted mb-4">Rastreamos el origen y transformación de cada dato para asegurar transparencia y auditoría completa.</p>
                   
                   <div class="space-y-4">
@@ -310,23 +296,23 @@ const combinedStructuredData = [structuredData, faqStructuredData];
 
         <!-- 3 -->
         <article 
-          class="fade-in-right card-gradient rounded-2xl p-8 hover:ring-2 hover:ring-orbe-violet/60 hover:shadow-xl hover:shadow-orbe-violet/20 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
+          class="fade-in-right rounded-2xl p-8 bg-white/[0.03] border border-white/[0.08] hover:border-orbe-violet/40 hover:bg-orbe-violet/[0.05] hover:shadow-xl hover:shadow-orbe-violet/10 transition-all duration-300 cursor-pointer hover-lift benefit-card group" 
           data-benefit="decisiones-rapidas"
         >
           <div class="w-12 h-12 rounded-lg bg-orbe-violet/20 group-hover:bg-orbe-violet/30 group-hover:scale-110 transition-all duration-300 grid place-items-center mb-5">
             <svg class="w-6 h-6 text-orbe-violet group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <h3 class="text-2xl font-serif font-semibold text-soft-white">Decisiones Rápidas</h3>
+          <h3 class="text-2xl font-sans font-semibold text-soft-white">Decisiones Rápidas</h3>
           
           <!-- Card expandida para mobile - aparece solo en mobile -->
-          <div id="benefit-detail-card-decisiones-rapidas" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+          <div id="benefit-detail-card-decisiones-rapidas" class="md:hidden mt-6 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-500 ease-out max-h-0 overflow-hidden">
             <article class="card-gradient rounded-2xl p-6 border border-orbe-violet/30">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
                   <svg class="w-6 h-6 text-orbe-violet" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
                 </div>
                 <div class="flex-1">
-                  <h3 class="text-xl font-serif font-bold text-soft-white mb-3">Decisiones Rápidas</h3>
+                  <h3 class="text-xl font-sans font-bold text-soft-white mb-3">Decisiones Rápidas</h3>
                   <p class="text-sm text-muted mb-4">Acceso inmediato a información actualizada para tomar decisiones oportunas y estratégicas.</p>
                   
                   <div class="space-y-4">
@@ -386,14 +372,14 @@ const combinedStructuredData = [structuredData, faqStructuredData];
       </div>
 
       <!-- Card explicativa expandida para desktop -->
-      <div id="benefit-detail-card" class="hidden md:block mt-10 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-600 ease-out max-h-0 overflow-hidden">
+      <div id="benefit-detail-card" class="hidden md:block mt-10 opacity-0 transform translate-y-8 pointer-events-none transition-all duration-500 ease-out max-h-0 overflow-hidden">
         <article class="card-gradient rounded-2xl p-8 border border-orbe-violet/30">
           <div class="flex items-start gap-6">
             <div id="benefit-icon" class="w-16 h-16 rounded-xl bg-orbe-violet/20 grid place-items-center flex-shrink-0">
               <!-- Icono se inserta dinámicamente -->
             </div>
             <div class="flex-1">
-              <h3 id="benefit-title" class="text-3xl font-serif font-bold text-soft-white mb-4">
+              <h3 id="benefit-title" class="text-3xl font-sans font-bold text-soft-white mb-4">
                 <!-- Título se inserta dinámicamente -->
               </h3>
               <p id="benefit-overview" class="text-lg text-muted mb-6">

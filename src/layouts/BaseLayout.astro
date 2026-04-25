@@ -69,7 +69,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <link rel="preconnect" href="https://cdn.tailwindcss.com" />
   
   <!-- Fuentes optimizadas -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -80,45 +80,38 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   
   <!-- Estilos personalizados -->
   <style>
-    /* Gradientes armoniosos y fondo completo */
+    /* Variables de marca */
     :root {
       --orbe-violet: #8B5CF6;
-      --orbe-dark: #100645;
-      --orbe-gray: #1A1A2E;
+      --orbe-dark: #0e0e0e;
+      --orbe-deep: #794eba;
+      --orbe-gray: #0f0f0f;
       --orbe-violet-light: rgba(139, 92, 246, 0.1);
       --orbe-violet-medium: rgba(139, 92, 246, 0.2);
+      --orbe-dot-color: rgba(121, 78, 186, 0.07);
+      --orbe-dot-size: 1px;
+      --orbe-dot-spacing: 28px;
     }
-    
-    /* Fondo principal con degradado completo del viewport */
+
+    /* Fondo fluido — un único gradiente continuo fijo */
     body {
-      background: linear-gradient(135deg, 
-        var(--orbe-dark) 0%, 
-        #1a0b3d 25%, 
-        var(--orbe-gray) 50%, 
-        #2a1a4a 75%, 
-        var(--orbe-dark) 100%);
+      background-color: #0e0e0e;
+      background-image:
+        radial-gradient(circle, rgba(121, 78, 186, 0.07) 1px, transparent 1px),
+        radial-gradient(ellipse at 18% 15%, rgba(121, 78, 186, 0.38) 0%, transparent 52%),
+        radial-gradient(ellipse at 80% 55%, rgba(121, 78, 186, 0.22) 0%, transparent 45%),
+        radial-gradient(ellipse at 45% 95%, rgba(121, 78, 186, 0.18) 0%, transparent 40%);
+      background-size: 28px 28px, 100% 100%, 100% 100%, 100% 100%;
       background-attachment: fixed;
       min-height: 100vh;
     }
-    
-    /* Gradientes de secciones más suaves */
-    .gradient-bg { 
-      background: linear-gradient(135deg, 
-        rgba(16, 6, 69, 0.8) 0%, 
-        rgba(26, 26, 46, 0.6) 50%,
-        rgba(42, 26, 74, 0.8) 100%);
-      backdrop-filter: blur(10px);
+
+    .gradient-bg {
+      background: transparent;
     }
-    
-    .hero-gradient { 
-      background: radial-gradient(ellipse at 80% 20%, 
-        var(--orbe-violet-light) 0%, 
-        transparent 50%), 
-        linear-gradient(135deg,
-          var(--orbe-dark) 0%, 
-          #1a0b3d 30%,
-          var(--orbe-gray) 70%,
-          var(--orbe-dark) 100%);
+
+    .hero-gradient {
+      background: transparent;
     }
     
     /* Efecto fade-out del Hero al hacer scroll */
@@ -150,6 +143,16 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     }
     
     .hero-subtitle.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-ctas {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-ctas.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -200,9 +203,9 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     }
     
     #faq details[open] {
-      background: linear-gradient(135deg, 
-        rgba(16, 6, 69, 0.8) 0%, 
-        rgba(26, 26, 46, 0.6) 100%);
+      background: linear-gradient(135deg,
+        rgba(63, 3, 123, 0.25) 0%,
+        rgba(34, 32, 33, 0.6) 100%);
     }
     
     #faq details summary {
@@ -236,11 +239,39 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
       }
     }
     
-    /* Navegación fija mejorada */
+    /* Navegación — scroll-aware frosted glass */
     nav {
-      background: rgba(16, 6, 69, 0.9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+    }
+
+    nav[data-scrolled="true"] {
+      background: rgba(14, 14, 14, 0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    }
+
+    /* Mobile menu slide animation */
+    #mobileMenu {
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+      overflow: hidden;
+    }
+    #mobileMenu.open {
+      max-height: 420px;
+      opacity: 1;
+    }
+
+    /* Nav link active state */
+    .nav-link.active {
+      color: var(--orbe-violet);
+    }
+    .nav-link.active::after {
+      width: 100%;
     }
     
     /* Animaciones de entrada mejoradas */
@@ -259,6 +290,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     .fade-in-delay-2 { transition-delay: 0.2s; }
     .fade-in-delay-3 { transition-delay: 0.3s; }
     .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
     
     /* Animaciones desde diferentes direcciones */
     .fade-in-left { 
@@ -388,11 +420,9 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     
     /* Cards con mejor contraste */
     .card-gradient {
-      background: linear-gradient(135deg, 
-        rgba(16, 6, 69, 0.6) 0%, 
-        rgba(26, 26, 46, 0.4) 100%);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 92, 246, 0.2);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: none;
     }
     
     /* Texto con mejor contraste */
@@ -429,27 +459,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
         transform: translateY(0);
       }
     }
-    
-    /* Animaciones de hover mejoradas */
-    .hover-lift:hover {
-      transform: translateY(-4px);
-    }
-    
-    .hover-scale:hover {
-      transform: scale(1.05);
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
+
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -459,6 +469,31 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Animaciones de hover mejoradas */
+    .hover-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    /* Shimmer para CTA primario */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .btn-shimmer {
+      background: linear-gradient(90deg, #7c3aed 0%, #8B5CF6 30%, #a78bfa 50%, #8B5CF6 70%, #7c3aed 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    .btn-shimmer:hover {
+      background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 30%, #8B5CF6 50%, #7c3aed 70%, #6d28d9 100%);
+      background-size: 200% auto;
+      animation: shimmer 2s linear infinite;
     }
   </style>
   
@@ -473,11 +508,12 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   
   <!-- Scripts optimizados -->
   <script>
-    // Mobile menu
+    // Mobile menu — slide animation
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Smooth scroll mejorado
@@ -501,7 +537,8 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
               top: offsetTop,
               behavior: 'smooth'
             });
-            mobileMenu?.classList.add('hidden');
+            mobileMenu?.classList.remove('open');
+      menuBtn?.setAttribute('aria-expanded', 'false');
           }
         }
       });
@@ -563,37 +600,36 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
         });
       });
       
-      // Controlar aparición progresiva de elementos del Hero
+      // Nav scroll-aware
+      const mainNav = document.getElementById('main-nav');
+      function updateNav() {
+        if (mainNav) mainNav.dataset.scrolled = window.scrollY > 60 ? 'true' : 'false';
+      }
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+
+      // Active section tracking
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id], header[id]');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+      sections.forEach(s => sectionObserver.observe(s));
+
+      // Hero progressive reveal
       const heroSubtitle = document.querySelector('.hero-subtitle');
-      const heroParagraphs = document.querySelector('.hero-paragraphs');
-      const heroParagraphElements = document.querySelectorAll('.hero-paragraph');
-      
-      // Mostrar leyenda después de un breve delay
-      setTimeout(() => {
-        if (heroSubtitle) {
-          heroSubtitle.classList.add('visible');
-        }
-      }, 600); // 600ms después de cargar la página
-      
-      // Mostrar párrafos adicionales después de más tiempo
-      setTimeout(() => {
-        if (heroParagraphs) {
-          heroParagraphs.classList.add('visible');
-          
-          // Mostrar cada párrafo individual con delay
-          heroParagraphElements.forEach((paragraph, index) => {
-            setTimeout(() => {
-              paragraph.classList.add('visible');
-            }, (index + 1) * 500); // 500ms entre cada párrafo
-          });
-        }
-      }, 2000); // 2 segundos después de cargar la página
+      const heroCtas = document.querySelector('.hero-ctas');
+      setTimeout(() => { if (heroSubtitle) heroSubtitle.classList.add('visible'); }, 400);
+      setTimeout(() => { if (heroCtas) heroCtas.classList.add('visible'); }, 700);
     });
 
-    // Animación de carga de página
-    window.addEventListener('load', () => {
-      document.body.style.opacity = '1';
-    });
 
       // Sistema de fade-out/fade-in para todos los componentes
       const heroContent = document.querySelector('.hero-content');
@@ -699,19 +735,6 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
           ticking = false;
         });
         ticking = true;
-      }
-    });
-
-    // Efecto parallax sutil para el hero (mejorado)
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero-gradient');
-      if (hero) {
-        // Parallax más sutil que se detiene cuando el Hero se desvanece
-        const heroHeight = hero.offsetHeight;
-        if (scrolled < heroHeight) {
-          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
       }
     });
 

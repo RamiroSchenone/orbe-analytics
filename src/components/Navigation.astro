@@ -3,34 +3,39 @@
 import logoWhite from '../assets/LOGO PNG BLANCO.png';
 ---
 
-<nav class="fixed top-0 inset-x-0 z-50 bg-orbe-dark/80 backdrop-blur nav-shadow">
+<nav id="main-nav" data-scrolled="false" class="fixed top-0 inset-x-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="h-14 sm:h-16 flex items-center justify-between">
-      <a href="#inicio" class="flex items-center gap-2 logo-link">
-        <img src={logoWhite.src} alt="Orbe Analytics" class="h-20 sm:h-24 md:h-[150px] w-auto">
+    <div class="h-14 sm:h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+
+      <!-- Logo — left -->
+      <a href="#inicio" class="flex items-center logo-link">
+        <img src={logoWhite.src} alt="Orbe Analytics" class="h-16 sm:h-20 md:h-24 w-auto">
       </a>
 
-      <!-- desktop -->
-      <div class="hidden md:flex items-center gap-6 lg:gap-8">
-        <a href="#servicios" class="nav-link hover:text-orbe-violet">Servicios</a>
-        <a href="#sobre-nosotros" class="nav-link hover:text-orbe-violet">Sobre nosotros</a>
-        <a href="#beneficios" class="nav-link hover:text-orbe-violet">Beneficios</a>
-        <a href="#faq" class="nav-link hover:text-orbe-violet">Preguntas frecuentes</a>
-        <a href="#contacto" class="nav-link hover:text-orbe-violet">Contacto</a>
-        <a href="#contacto" class="ml-2 inline-flex items-center rounded-lg bg-orbe-violet px-4 py-2 text-sm font-semibold hover:bg-purple-600 hover-lift">Agenda una reunión</a>
+      <!-- Links — centered -->
+      <div class="hidden md:flex items-center justify-center gap-6 lg:gap-8">
+        <a href="#servicios" class="nav-link text-sm font-medium hover:text-orbe-violet transition-colors pb-0.5">Servicios</a>
+        <a href="#sobre-nosotros" class="nav-link text-sm font-medium hover:text-orbe-violet transition-colors pb-0.5">Sobre nosotros</a>
+        <a href="#beneficios" class="nav-link text-sm font-medium hover:text-orbe-violet transition-colors pb-0.5">Beneficios</a>
+        <a href="#faq" class="nav-link text-sm font-medium hover:text-orbe-violet transition-colors pb-0.5">FAQ</a>
+        <a href="#contacto" class="nav-link text-sm font-medium hover:text-orbe-violet transition-colors pb-0.5">Contacto</a>
       </div>
 
-      <!-- mobile toggle -->
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Abrir menú">
-        <svg id="menuIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
+      <!-- CTA + mobile toggle — right -->
+      <div class="flex items-center justify-end gap-2">
+        <a href="#contacto" class="hidden md:inline-flex items-center rounded-lg bg-orbe-violet px-4 py-2 text-sm font-semibold hover:bg-purple-500 transition-colors hover-lift">Agenda una reunión</a>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="menuIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </div>
 
   <!-- mobile menu -->
-  <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
+  <div id="mobileMenu" class="md:hidden border-t border-white/[0.06]" role="navigation" aria-label="Menú móvil">
     <div class="px-4 sm:px-6 py-4 space-y-3">
       <a class="block py-3 px-2 hover:text-orbe-violet hover:bg-white/5 rounded-lg transition-colors" href="#servicios">Servicios</a>
       <a class="block py-3 px-2 hover:text-orbe-violet hover:bg-white/5 rounded-lg transition-colors" href="#sobre-nosotros">Sobre nosotros</a>
