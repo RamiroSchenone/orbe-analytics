@@ -3,7 +3,7 @@
 import logoWhite from '../assets/LOGO PNG BLANCO.png';
 ---
 
-<nav id="main-nav" data-scrolled="false" class="fixed top-0 inset-x-0 z-50">
+<nav id="main-nav" data-scrolled="false" class="fixed top-0 inset-x-0 z-[100]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="h-14 sm:h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
 
@@ -35,7 +35,7 @@ import logoWhite from '../assets/LOGO PNG BLANCO.png';
   </div>
 
   <!-- mobile menu -->
-  <div id="mobileMenu" class="md:hidden" role="navigation" aria-label="Menú móvil">
+  <div id="mobileMenu" class="md:hidden" style="max-height:0;overflow:hidden;opacity:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.28s ease" role="navigation" aria-label="Menú móvil">
     <div class="border-t border-white/[0.08] px-4 sm:px-6 py-4 space-y-3">
       <a class="block py-3 px-2 hover:text-orbe-violet hover:bg-white/5 rounded-lg transition-colors" href="#servicios">Servicios</a>
       <a class="block py-3 px-2 hover:text-orbe-violet hover:bg-white/5 rounded-lg transition-colors" href="#sobre-nosotros">Sobre nosotros</a>

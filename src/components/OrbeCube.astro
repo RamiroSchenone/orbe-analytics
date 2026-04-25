@@ -2,14 +2,13 @@
 // OrbeCube — GLB model with custom chrome materials + brand lighting
 ---
 
-<div id="orbe-cube-container" class="relative w-full h-full" aria-hidden="true">
+<div id="orbe-cube-container" class="absolute inset-0" aria-hidden="true">
   <canvas id="orbe-cube-canvas" class="w-full h-full block"></canvas>
   <div class="orbe-cube-glow absolute left-1/2 pointer-events-none" style="top: 65%; transform: translateX(-50%);"></div>
 </div>
 
 <style>
   #orbe-cube-container {
-    min-height: 400px;
     animation: cube-enter 0.8s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
     transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
   }
@@ -39,10 +38,7 @@
   import * as THREE from 'three';
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-  console.log('[OrbeCube] script loaded, THREE:', !!THREE, 'GLTFLoader:', !!GLTFLoader);
-
   function initCube() {
-    console.log('[OrbeCube] initCube() called');
     const container = document.getElementById('orbe-cube-container') as HTMLElement;
     const canvas    = document.getElementById('orbe-cube-canvas') as HTMLCanvasElement;
     if (!container || !canvas) return;
@@ -115,17 +111,11 @@
       const size   = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
 
-      console.log('[OrbeCube] box size:', size, 'center:', center, 'maxDim:', maxDim);
-
       // Scale first, then offset by -center*scale so world center = 0
       // (doing position.sub(center) then scale undoes the centering: world center = C*(s-1))
       const s = 2.6 / maxDim;
       model.scale.setScalar(s);
       model.position.set(-center.x * s, -center.y * s, -center.z * s);
-
-      let meshCount = 0;
-      model.traverse((child) => { if (child instanceof THREE.Mesh) meshCount++; });
-      console.log('[OrbeCube] meshes:', meshCount);
 
       // rotator: holds the model, rotates around centered origin
       rotator = new THREE.Group();
