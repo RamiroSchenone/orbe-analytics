@@ -254,20 +254,6 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
       border-bottom: 1px solid rgba(139, 92, 246, 0.15);
     }
 
-    /* Mobile menu slide animation */
-    #mobileMenu {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      background: rgba(10, 10, 10, 0.97);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease;
-    }
-    #mobileMenu.open {
-      max-height: 480px;
-      opacity: 1;
-    }
 
     /* Nav link active state */
     .nav-link.active {
@@ -511,13 +497,35 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   
   <!-- Scripts optimizados -->
   <script>
-    // Mobile menu — slide animation
+    // Mobile menu — inline style approach (avoids Astro CSS scoping issues)
     const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
+    const mobileMenu = document.getElementById('mobileMenu') as HTMLElement;
+    let menuOpen = false;
+
+    if (mobileMenu) {
+      Object.assign(mobileMenu.style, {
+        maxHeight: '0',
+        opacity: '0',
+        overflow: 'hidden',
+        background: 'rgba(10, 10, 10, 0.97)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        transition: 'max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease',
+      });
+    }
+
+    function openMenu() {
+      menuOpen = true;
+      if (mobileMenu) { mobileMenu.style.maxHeight = '480px'; mobileMenu.style.opacity = '1'; }
+      menuBtn?.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      menuOpen = false;
+      if (mobileMenu) { mobileMenu.style.maxHeight = '0'; mobileMenu.style.opacity = '0'; }
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn?.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
 
     // Smooth scroll mejorado
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -540,8 +548,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
               top: offsetTop,
               behavior: 'smooth'
             });
-            mobileMenu?.classList.remove('open');
-      menuBtn?.setAttribute('aria-expanded', 'false');
+            closeMenu();
           }
         }
       });
