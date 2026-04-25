@@ -4,37 +4,44 @@ import OrbeCube from './OrbeCube.astro';
 
 <header id="inicio" class="hero-gradient relative min-h-screen flex items-center overflow-hidden">
 
-  <!-- Ambient glow behind cube (right side) -->
+  <!-- Ambient glow -->
   <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none"
-       style="background: radial-gradient(ellipse at right, rgba(139,92,246,0.10) 0%, transparent 65%);"
+       style="background: radial-gradient(ellipse at right, rgba(139,92,246,0.12) 0%, transparent 65%);"
        aria-hidden="true">
   </div>
 
   <div class="max-w-7xl mx-auto px-6 sm:px-8 w-full">
-    <div class="flex items-center gap-0 lg:gap-8 min-h-screen py-24">
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 min-h-screen py-24 lg:py-0">
 
-      <!-- LEFT: Text -->
-      <div class="hero-content flex-1 max-w-xl z-10">
+      <!-- TOP on mobile / RIGHT on desktop: 3D Cube -->
+      <div class="flex lg:order-2 flex-1 items-center justify-center relative z-10 pt-20 lg:pt-0">
+        <div class="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[420px] lg:h-[420px] xl:w-[500px] xl:h-[500px]">
+          <OrbeCube />
+        </div>
+      </div>
+
+      <!-- BOTTOM on mobile / LEFT on desktop: Text -->
+      <div class="hero-content flex-1 max-w-xl z-10 lg:order-1 text-center lg:text-left">
 
         <!-- Eyebrow badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orbe-violet/30 bg-orbe-violet/10 text-orbe-violet text-xs font-medium tracking-wide mb-8 animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orbe-violet/30 bg-orbe-violet/10 text-orbe-violet text-xs font-medium tracking-wide mb-6 lg:mb-8 animate-fade-in-up">
           <span class="w-1.5 h-1.5 rounded-full bg-orbe-violet animate-pulse inline-block"></span>
           Rosario, Argentina &middot; BI &amp; Analytics
         </div>
 
         <!-- Main headline -->
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-sans font-bold leading-[1.02] tracking-tight text-white animate-fade-in-up animation-delay-100">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold leading-[1.02] tracking-tight text-white animate-fade-in-up animation-delay-100">
           Primero<br />
           <span class="text-orbe-violet">los datos</span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="hero-subtitle mt-6 text-lg text-white/55 leading-relaxed max-w-md">
+        <p class="hero-subtitle mt-5 lg:mt-6 text-base lg:text-lg text-white/55 leading-relaxed max-w-md mx-auto lg:mx-0">
           Transformamos datos en decisiones estratégicas. Impulsamos una cultura organizacional orientada a la información.
         </p>
 
         <!-- CTAs -->
-        <div class="hero-ctas mt-10 flex flex-col sm:flex-row gap-3">
+        <div class="hero-ctas mt-8 lg:mt-10 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a href="#servicios"
              class="btn-shimmer inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orbe-violet/20">
             Descubre nuestros servicios
@@ -48,13 +55,6 @@ import OrbeCube from './OrbeCube.astro';
           </a>
         </div>
 
-      </div>
-
-      <!-- RIGHT: 3D Cube -->
-      <div class="hidden lg:flex flex-1 items-center justify-center relative z-10">
-        <div class="w-[420px] h-[420px] xl:w-[500px] xl:h-[500px]">
-          <OrbeCube />
-        </div>
       </div>
 
     </div>
