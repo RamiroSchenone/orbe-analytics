@@ -19,6 +19,9 @@ export default defineConfig({
     build: {
       cssCodeSplit: false,
     },
+    server: {
+      allowedHosts: true,
+    },
   },
   compressHTML: true,
   prefetch: true,

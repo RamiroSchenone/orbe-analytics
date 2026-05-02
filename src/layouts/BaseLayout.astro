@@ -1,4 +1,6 @@
 ---
+import FloatingButtons from '../components/FloatingButtons.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -494,6 +496,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 
 <body class="bg-orbe-dark text-white font-sans selection:bg-orbe-violet/40">
   <slot />
+  <FloatingButtons />
   
   <!-- Scripts optimizados -->
   <script>
@@ -634,8 +637,6 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
       const heroOverlay = document.querySelector('.hero-overlay');
       const heroSection = document.querySelector('.hero-gradient');
       const welcomeSection = document.querySelector('.welcome-section');
-      const allSections = document.querySelectorAll('section');
-      const allComponents = document.querySelectorAll('.scroll-component');
     
     // Función para calcular el progreso de fade
     function calculateFadeProgress(element, scrollTop, fadeStartRatio = 0.3, fadeEndRatio = 0.8) {
@@ -693,34 +694,6 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
           }
         }
       
-      // Efectos para todas las secciones
-      allSections.forEach(section => {
-        if (section === heroSection) return; // Skip hero section
-        if (section === welcomeSection) return; // Skip welcome section (manejada por separado)
-        
-        const fadeProgress = calculateFadeProgress(section, scrollTop);
-        
-        if (fadeProgress > 0) {
-          section.style.opacity = 1 - fadeProgress;
-          section.style.transform = `translateY(${fadeProgress * 30}px)`;
-        } else {
-          section.style.opacity = 1;
-          section.style.transform = 'translateY(0)';
-        }
-      });
-      
-      // Efectos para componentes individuales
-      allComponents.forEach(component => {
-        const fadeProgress = calculateFadeProgress(component, scrollTop);
-        
-        if (fadeProgress > 0) {
-          component.style.opacity = 1 - fadeProgress;
-          component.style.transform = `translateY(${fadeProgress * 20}px)`;
-        } else {
-          component.style.opacity = 1;
-          component.style.transform = 'translateY(0)';
-        }
-      });
     }
     
     // Event listener optimizado para scroll
